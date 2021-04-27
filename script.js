@@ -30,29 +30,40 @@
 //   alert("£" + price.toFixed(2));
 // }
 
-//Currently Working on code below
+const age = Number(prompt("What is your age?"));
+const station = prompt(
+  "What is your final station? Betweem York, Liverpool, London"
+).toLowerCase;
+const standardPrice = 0.21;
 
 let stations = {
-  victoria: 0,
-  liverpool: 21,
-  york: 32,
-  newcastle: 75,
-  edinburgh: 89,
+  york: 2,
+  liverpool: 7,
+  london: 9,
 };
 
-let standardPrice = 0.21;
-let juniorPrice = standardPrice / 0.2;
-let seniorPrice = standardPrice / 0.4;
-
-const personAge = Number(prompt("How old are you un years?"));
-const destination = prompt(
-  "What is your final station?  Newcastle, York, Liverpool, Edinburgh ".toLowerCase()
-);
-
-if (personAge < 18 && destination === "newcastle") {
-  alert("£" + juniorPrice * stations["newcastle"].toFixed());
-} else if ((personAge) => 65 && destination === "newcastle") {
-  alert("£" + seniorPrice * stations["newcastle"].toFixed());
+if (age < 18) {
+  if (station === "york") {
+    alert("£" + (standardPrice / 0.2) * stations["york"]);
+  } else if (station === "liverpool") {
+    alert("£" + (standardPrice / 0.2) * stations["liverpool"]);
+  } else {
+    alert("£" + (standardPrice / 0.2) * stations["london"]);
+  }
+} else if (age > 65) {
+  if (station === "york") {
+    alert("£" + (standardPrice / 0.4) * stations["york"]);
+  } else if (station === "liverpool") {
+    alert("£" + (standardPrice / 0.4) * stations["liverpool"]);
+  } else {
+    alert("£" + (standardPrice / 0.4) * stations["london"]);
+  }
 } else {
-  alert("£" + standardPrice * stations["newcastle"].toFixed());
+  if (station === "york") {
+    alert("£" + standardPrice * stations["york"]);
+  } else if (station === "liverpool") {
+    alert("£" + standardPrice * stations["liverpool"]);
+  } else {
+    alert("£" + standardPrice * stations["london"]);
+  }
 }
